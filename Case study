@@ -1,247 +1,175 @@
-1.Distributed Intrusion Detection & Prevention System (DIDS/IPS)
+1. Cloud-Based SIEM & Automated Threat Detection
+Problem Statement
 
-Introduction
+Modern organizations generate large volumes of security logs from applications, servers, databases, and cloud services. Traditional monitoring methods make it difficult to analyze these events in real time and identify coordinated attacks. A centralized cloud-based system is required to collect, correlate, analyze, and respond to security events efficiently.
 
-A Distributed Intrusion Detection & Prevention System monitors network traffic from multiple systems, detects suspicious activities, and automatically blocks or responds to potential attacks.
+Objective
+To collect security events from multiple cloud and application sources.
+To detect suspicious activities and potential cyberattacks.
+To correlate related security events.
+To assign risk and severity levels to detected threats.
+To generate real-time security alerts.
+To provide a centralized security monitoring dashboard.
+Existing System
 
-Functional Requirements
+Traditional security monitoring generally depends on separate logs and manually monitored security tools. Logs may be distributed across different systems, making correlation difficult. Security teams may also spend significant time investigating events manually.
 
-• Monitor network traffic from multiple nodes.
-• Capture and analyze packets.
-• Detect known attacks using security rules.
-• Detect abnormal network behavior.
-• Generate security alerts.
-• Calculate risk/severity levels.
-• Block suspicious IP addresses or connections.
-• Maintain security logs and reports.
+Proposed System
 
-Non-Functional Requirements
+A cloud-based SIEM platform collects security events from different sources and processes them through centralized log processing, detection, correlation, and risk assessment components. Detected threats are sent to an alert management system and displayed through a cloud dashboard.
 
-• Real-time detection.
-• High availability.
-• Low detection latency.
-• Scalable.
-• Reliable.
-• Secure.
+Advantages
+Centralized security monitoring.
+Real-time threat detection.
+Automated event correlation.
+Risk-based prioritization.
+Reduced manual investigation effort.
+Scalable cloud architecture.
+Centralized incident records.
+Use Cases
+Brute-force attack detection.
+Suspicious login monitoring.
+Unauthorized access detection.
+Suspicious IP monitoring.
+Cloud application security monitoring.
+Security operations center (SOC) monitoring.
+2. Cloud-Based Distributed Intrusion Detection & Prevention System
+Problem Statement
 
-How it Works
-Network traffic enters the monitoring nodes.
-Packet Capture Engine collects network packets.
-Traffic Analyzer examines packet information.
-Detection Engine checks traffic against attack signatures and behavioral rules.
-If suspicious activity is detected, a risk score is calculated.
-Alert Manager generates a security alert.
-If the threat is critical, Prevention Module blocks the suspicious IP or connection.
-All events are stored in the centralized security log.
-Key Design Decisions
+Cloud environments consist of distributed applications, services, and networks that continuously exchange large amounts of traffic. Monitoring these environments using a single detection point can make it difficult to identify attacks occurring across different locations. A distributed system is required to monitor activities, detect threats, and support automated prevention.
 
-• Packet Capture Engine collects network traffic.
-• Detection Engine identifies malicious activities.
-• Redis stores temporary counters and frequently accessed information.
-• Kafka can transfer security events between distributed components.
-• Elasticsearch can be used for fast security-log searching.
-• Dashboard displays alerts, attacks, and network activity.
+Objective
+To monitor network activity across distributed cloud environments.
+To detect malicious or abnormal traffic.
+To correlate events from multiple monitoring points.
+To calculate threat severity.
+To generate security alerts.
+To support automated threat prevention.
+Existing System
 
-Challenge
+Conventional IDS/IPS solutions often focus on individual networks or monitoring points. Distributed attacks may generate events across multiple systems, making them difficult to correlate. Manual investigation can also delay preventive actions.
 
-Processing large amounts of network traffic in real time while maintaining low latency and minimizing false positives.
+Proposed System
 
-2. AI-Based Phishing Detection & Automated Response System
-Introduction
+The proposed DIDS/IPS deploys multiple monitoring sensors across cloud environments. Security events are sent to a centralized analysis layer where traffic is analyzed, events are correlated, and threats are assigned risk levels. The prevention layer can take appropriate actions such as blocking or isolating suspicious activity.
 
-An AI-Based Phishing Detection System identifies malicious emails, websites, and URLs using machine learning and security analysis. It automatically assigns a risk score and can quarantine dangerous content.
+Advantages
+Distributed security monitoring.
+Centralized event correlation.
+Faster threat identification.
+Risk-based detection.
+Automated prevention.
+Scalable cloud architecture.
+Improved visibility across cloud infrastructure.
+Use Cases
+Network intrusion detection.
+Port scanning detection.
+Suspicious traffic detection.
+Distributed attack monitoring.
+Unauthorized network access.
+Cloud infrastructure protection.
+3. Cloud-Based Ransomware Early Detection & Response System
+Problem Statement
 
-Functional Requirements
+Ransomware can rapidly modify, encrypt, rename, or delete large numbers of files, causing significant data loss. Conventional approaches often identify ransomware after substantial damage has already occurred. A cloud-integrated early detection system is required to identify suspicious file behavior and initiate a rapid response.
 
-• Analyze emails and URLs.
-• Detect suspicious links.
-• Analyze domain and website characteristics.
-• Identify phishing patterns.
-• Use machine learning for classification.
-• Calculate phishing risk score.
-• Generate security alerts.
-• Quarantine suspicious emails or URLs.
-• Maintain detection history and logs.
+Objective
+To monitor file activities continuously.
+To identify ransomware-like behavior at an early stage.
+To detect suspicious changes in protected files.
+To calculate the severity of detected activity.
+To generate immediate alerts.
+To initiate containment and response actions.
+Existing System
 
-Non-Functional Requirements
+Traditional antivirus and signature-based approaches primarily depend on known malware patterns. New or modified ransomware variants may not always be identified immediately. Manual recovery and investigation can also increase downtime.
 
-• High detection accuracy.
-• Low detection latency.
-• High availability.
-• Scalable.
-• Reliable.
-• Secure.
+Proposed System
 
-How it Works
-Email or URL enters the system.
-URL Analyzer extracts the domain, URL structure, and other features.
-Domain Reputation Service checks the reputation of the domain.
-ML Detection Engine analyzes the extracted features.
-System calculates a phishing risk score.
-If the score is low, the request/email is considered safe.
-If the score is high, an alert is generated.
-Highly suspicious emails can be moved to quarantine.
-Detection details are stored in the security database.
-Key Design Decisions
+The proposed system combines continuous file activity monitoring with behavioral analysis and protected decoy files. Suspicious file operations are analyzed by a detection engine. When ransomware-like behavior is identified, the system generates an alert, records the incident, and can initiate containment actions.
 
-• Machine Learning Model detects phishing patterns.
-• URL Analyzer extracts suspicious URL features.
-• Redis caches frequently checked domains.
-• PostgreSQL/MySQL stores detection results and user information.
-• Quarantine Service isolates suspicious emails.
-• Dashboard displays phishing alerts and detection statistics.
+Advantages
+Early detection of suspicious file activity.
+Behavioral-based monitoring.
+Faster incident response.
+Reduced potential data loss.
+Centralized incident logging.
+Cloud scalability.
+Supports automated containment.
+Use Cases
+Enterprise file protection.
+Cloud storage monitoring.
+Ransomware detection.
+File server protection.
+Backup environment monitoring.
+Security incident investigation.
+4. Cloud-Based Zero Trust Access Monitoring System
+Problem Statement
 
-Challenge
+Traditional network security models often assume that users or devices inside an organization's network can be trusted. With cloud applications, remote access, and distributed devices, this assumption can increase security risks. A system is required to continuously verify users, devices, and access requests before allowing resources to be accessed.
 
-Detecting newly created phishing websites and sophisticated attacks that do not match previously known patterns.
+Objective
+To verify every access request.
+To authenticate users and devices.
+To enforce access policies.
+To evaluate access risk.
+To continuously monitor active sessions.
+To detect and respond to abnormal access behavior.
+Existing System
 
-3. Secure Cloud File Sharing & Threat Detection System
-Introduction
+Traditional access-control systems may rely heavily on usernames, passwords, network location, or predefined permissions. Once authenticated, users may receive access without continuous evaluation of their behavior or device context.
 
-A Secure Cloud File Sharing System allows users to upload, store, share, and download files securely while detecting malicious files and unauthorized activities.
+Proposed System
 
-Functional Requirements
+The proposed Zero Trust system continuously evaluates access requests using identity, device information, role, policy, and risk indicators. Access decisions are made dynamically, while user sessions are continuously monitored for suspicious activity.
 
-• User registration and authentication.
-• Secure file upload and download.
-• File encryption.
-• File sharing with authorized users.
-• Access control.
-• Malware/threat detection.
-• File version management.
-• Activity monitoring.
-• Security alerts.
-• Maintain audit logs.
+Advantages
+Continuous access verification.
+Improved identity security.
+Dynamic access control.
+Reduced unauthorized access.
+Better monitoring of remote users.
+Suitable for cloud environments.
+Centralized policy management.
+Use Cases
+Cloud application access.
+Remote employee access.
+Enterprise identity management.
+Privileged account monitoring.
+API access protection.
+Multi-cloud resource protection.
+5. Cloud-Based Security Incident Response & Automated Threat Containment
+Problem Statement
 
-Non-Functional Requirements
+Security incidents in cloud environments can involve multiple applications, users, devices, and services. Manual investigation and response can delay containment and increase the impact of an incident. A centralized system is required to detect incidents, assess their severity, collect evidence, and initiate appropriate response actions.
 
-• High security.
-• High availability.
-• Scalable.
-• Reliable.
-• Fast file access.
-• Data privacy.
-• Fault tolerance.
+Objective
+To identify and manage security incidents.
+To classify detected threats.
+To calculate incident severity.
+To collect relevant security evidence.
+To automate predefined response actions.
+To maintain centralized incident records.
+Existing System
 
-How it Works
-User logs into the system.
-Authentication Service verifies the user.
-User uploads a file.
-File is scanned by the Threat Detection Service.
-If the file is safe, it is encrypted and stored in cloud/object storage.
-File metadata is stored in the database.
-User can share the file with authorized users.
-Access Control checks permissions whenever another user requests the file.
-File activities are recorded in the audit log.
-If suspicious activity is detected, the system generates an alert and can temporarily restrict access.
-Key Design Decisions
+In traditional environments, security alerts are often investigated manually using separate monitoring and response tools. This can lead to delayed response, fragmented evidence, and difficulty in tracking the complete incident lifecycle.
 
-• Object Storage stores large files efficiently.
-• Encryption protects files during storage and transfer.
-• PostgreSQL/MySQL stores users, file metadata, and permissions.
-• Redis caches frequently accessed file metadata.
-• Threat Detection Service scans uploaded files.
-• Access Control Service manages user permissions.
-• Audit Log Service records file activities.
+Proposed System
 
-Challenge
+The proposed system creates a centralized incident-response workflow. Security events are collected from cloud services, analyzed by a detection engine, and converted into incidents when required. The system evaluates risk, collects relevant evidence, and triggers predefined containment or notification actions.
 
-Providing secure and fast file sharing while protecting files from malware, unauthorized access, and data leakage.
-
-4. Security Information and Event Management System (SIEM)
-Introduction
-
-A SIEM system collects security logs from servers, applications, network devices, and endpoints. It analyzes these events to detect threats and provides a centralized security monitoring platform.
-
-Functional Requirements
-
-• Collect logs from multiple devices and applications.
-• Normalize and store security events.
-• Detect suspicious activities.
-• Correlate events from different sources.
-• Generate security alerts.
-• Calculate threat severity.
-• Provide real-time monitoring.
-• Maintain audit logs and reports.
-
-Non-Functional Requirements
-
-• Real-time processing.
-• High availability.
-• Scalable.
-• Reliable.
-• Secure.
-• Low detection latency.
-
-How it Works
-Servers, applications, firewalls, and endpoints generate security logs.
-Log Collection Service collects the events.
-Log Processing Service normalizes the different log formats.
-Events are sent to the Event Processing Engine.
-Correlation Engine identifies relationships between multiple events.
-Detection Engine identifies suspicious behavior.
-Risk Engine calculates the severity of the incident.
-Alert Service notifies security analysts.
-Events are stored for investigation and reporting.
-Key Design Decisions
-
-• Kafka handles large volumes of security events.
-• Elasticsearch provides fast log searching and analysis.
-• Redis stores temporary counters and frequently accessed data.
-• Detection Engine identifies suspicious patterns.
-• Dashboard provides real-time security visibility.
-• Role-Based Access Control (RBAC) restricts access to security data.
-
-Challenge
-
-Processing millions of security events while identifying important threats without generating too many false alerts.
-
-5. API Security Gateway & Threat Detection System
-Introduction
-
-An API Security Gateway protects APIs from unauthorized access, abuse, malicious requests, and excessive traffic. It acts as a security layer between clients and backend services.
-
-Functional Requirements
-
-• Authenticate API users.
-• Authorize API requests.
-• Validate incoming requests.
-• Apply rate limits.
-• Detect malicious API traffic.
-• Block suspicious requests.
-• Generate security alerts.
-• Maintain API activity logs.
-• Monitor API performance.
-
-Non-Functional Requirements
-
-• Low latency.
-• High availability.
-• Scalable.
-• Reliable.
-• Secure.
-• Fault tolerant.
-
-How it Works
-Client sends an API request.
-Request reaches the API Gateway.
-Authentication Service verifies the access token/API key.
-Authorization Service checks user permissions.
-Rate Limiter checks the request frequency.
-Request Validation checks parameters and payloads.
-Threat Detection Engine analyzes suspicious patterns.
-Safe requests are forwarded to the backend service.
-Malicious requests are blocked.
-All API activities are stored in security logs.
-Key Design Decisions
-
-• API Gateway acts as the central security entry point.
-• JWT/OAuth 2.0 can be used for authentication and authorization.
-• Redis stores rate-limit counters and temporary session information.
-• WAF can filter common web attacks.
-• Kafka can process API security events asynchronously.
-• Elasticsearch stores and searches API security logs.
-
-Challenge
-
-Protecting thousands of APIs from attacks while maintaining very low response latency.
+Advantages
+Faster incident response.
+Centralized incident management.
+Automated containment.
+Better evidence collection.
+Reduced manual workload.
+Complete incident history.
+Cloud scalability.
+Use Cases
+Account compromise response.
+Suspicious IP containment.
+Malware incident handling.
+Unauthorized access response.
+Cloud application incidents.
+Security operations automation.
